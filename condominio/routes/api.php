@@ -21,11 +21,11 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/cadastrar', [UserController::class, 'create']);
 
 Route::middleware('auth:api')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+
     Route::prefix('user')->group(function() {
-        Route::post('/logout', [AuthController::class, 'logout']);
     });
 
     Route::prefix('condominio')->group(function() {
-
     });
 });
