@@ -23,5 +23,12 @@ class UserService
 
         return $user;
     }
+
+    public function me($request)
+    {
+        $userUuid = $request->user()->uuid;
+
+        return $this->repository->findMe($userUuid);
+    }
 }
 

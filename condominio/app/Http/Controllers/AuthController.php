@@ -25,10 +25,6 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => strtolower($data['email']), 'password' => $data['password']])) {
             $user = Auth::user();
 
-            // $user = User::find($user->id);
-            // $token = $user->createToken('JWT')->plainTextToken;
-            // dd($token);
-
             $user->token = $user->createToken($user->email)->accessToken;
 
             return ['status' => true, 'message' => Geral::USUARIO_LOGADO, "usuario" => $user];

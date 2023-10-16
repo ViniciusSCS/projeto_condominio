@@ -15,4 +15,12 @@ class Geral
     const USUARIO_ME = 'Usuário Logado!';
     const USUARIO_ENCONTRADO = 'Usuário encontrado!';
     const USUARIO_DELETADO = 'Usuário deletado com sucesso!';
+
+    // Endereço
+
+    const ENDERECO_CADASTRADO = 'Endereço cadastrado com sucesso!';
+
+    // Condominio
+
+    const CONDOMINIO_CADASTRADO = 'Condomínio cadastrado com sucesso!';
 }

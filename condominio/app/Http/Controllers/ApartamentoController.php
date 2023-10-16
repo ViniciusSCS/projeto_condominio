@@ -19,7 +19,7 @@ class ApartamentoController extends Controller
      */
     public function create()
     {
-        //
+        dd('Apartamento create');
     }
 
     /**

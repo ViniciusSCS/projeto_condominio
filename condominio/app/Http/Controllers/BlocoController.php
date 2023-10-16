@@ -19,7 +19,7 @@ class BlocoController extends Controller
      */
     public function create()
     {
-        //
+        dd('cadastra bloco');
     }
 
     /**

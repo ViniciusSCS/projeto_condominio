@@ -16,9 +16,11 @@ class UserController extends Controller
         $this->service = $service;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $user = $this->service->me($request);
+
+        return ['status' => true, 'message' => Geral::USUARIO_ENCONTRADO, "usuario" => $user];
     }
 
     public function create(UserRequest $request)

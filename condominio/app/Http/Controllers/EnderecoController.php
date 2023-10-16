@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Constants\Geral;
-use App\Http\Requests\CondominioRequest;
-use App\Services\CondominioService;
+use App\Http\Requests\EnderecoRequest;
+use App\Services\EnderecoService;
 use Illuminate\Http\Request;
 
-class CondominioController extends Controller
+class EnderecoController extends Controller
 {
     protected $service;
 
-    public function __construct(CondominioService $service)
+    public function __construct(EnderecoService $service)
     {
         $this->service = $service;
     }
@@ -27,11 +27,11 @@ class CondominioController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(CondominioRequest $request)
+    public function create(EnderecoRequest $request)
     {
-        $condominio = $this->service->create($request);
+        $endereco = $this->service->create($request);
 
-        return ['status' => true, 'message' => Geral::CONDOMINIO_CADASTRADO, 'condominio' => $condominio];
+        return ['status' => true, 'message' => Geral::ENDERECO_CADASTRADO, "endereco" => $endereco];
     }
 
     /**

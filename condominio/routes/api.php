@@ -1,8 +1,14 @@
 <?php
 
 use App\Http\Controllers\{
+    UserController,
     AuthController,
-    UserController
+    BlocoController,
+    CondominioController,
+    ApartamentoController,
+    CidadeController,
+    EnderecoController,
+    EstadoController,
 };
 use Illuminate\Support\Facades\Route;
 
@@ -24,8 +30,30 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 
     Route::prefix('user')->group(function() {
+        Route::get('/', [UserController::class, 'index']);
+    });
+
+    Route::prefix('estado')->group(function () {
+        Route::get('/select', [EstadoController::class, 'select']);
+    });
+
+    Route::prefix('cidade')->group(function () {
+        Route::get('/select/{codigo_uf}', [CidadeController::class, 'selectPorEstado']);
+    });
+
+    Route::prefix('endereco')->group(function () {
+        Route::post('/', [EnderecoController::class, 'create']);
     });
 
     Route::prefix('condominio')->group(function() {
+        Route::post('/', [CondominioController::class, 'create']);
+
+        Route::prefix('bloco')->group(function(){
+            Route::post('/', [BlocoController::class, 'create']);
+
+            Route::prefix('apartamento')->group(function(){
+                Route::post('/', [ApartamentoController::class, 'create']);
+            });
+        });
     });
 });

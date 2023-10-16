@@ -7,6 +7,11 @@ use Ramsey\Uuid\Uuid;
 
 class UserRepository
 {
+    public function findMe($uuid)
+    {
+        return User::where('uuid', $uuid)->get();
+    }
+
     public function create($data)
     {
         return User::create([
