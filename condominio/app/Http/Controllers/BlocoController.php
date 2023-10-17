@@ -34,12 +34,11 @@ class BlocoController extends Controller
         return ['status' => true, 'message' => Geral::BLOCO_CADASTRADO, 'bloco' => $bloco];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function list(Request $request)
     {
-        //
+        $bloco = $this->service->list($request);
+
+        return ['status' => true, 'message' => Geral::BLOCO_ENCONTRADO, 'bloco' => $bloco];
     }
 
     /**

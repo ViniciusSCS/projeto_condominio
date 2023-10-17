@@ -51,6 +51,7 @@ Route::middleware('auth:api')->group(function () {
 
         Route::prefix('bloco')->group(function(){
             Route::post('/', [BlocoController::class, 'create']);
+            Route::get('/', [BlocoController::class, 'list']);
 
             Route::prefix('apartamento')->group(function(){
                 Route::post('/', [ApartamentoController::class, 'create']);

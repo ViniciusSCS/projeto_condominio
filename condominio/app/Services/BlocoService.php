@@ -19,5 +19,10 @@ class BlocoService
 
         return $this->repository->create($data);
     }
+
+    public function list()
+    {
+        return $this->repository->list();
+    }
 }
 

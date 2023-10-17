@@ -23,8 +23,10 @@ class Geral
     // Condominio
 
     const CONDOMINIO_CADASTRADO = 'Condomínio cadastrado com sucesso!';
+    const CONDOMINIO_ENCONTRADO = 'Condomínio encontrado com sucesso!';
 
     // Bloco
 
     const BLOCO_CADASTRADO = 'Bloco cadastrado com sucesso!';
+    const BLOCO_ENCONTRADO = 'Bloco encontrado com sucesso!';
 }

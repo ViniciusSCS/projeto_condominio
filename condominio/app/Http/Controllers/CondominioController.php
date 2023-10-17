@@ -35,7 +35,7 @@ class CondominioController extends Controller
     {
         $condominio = $this->service->list($request);
 
-        return ['status' => true, 'message' => Geral::CONDOMINIO_CADASTRADO, 'condominio' => $condominio];
+        return ['status' => true, 'message' => Geral::CONDOMINIO_ENCONTRADO, 'condominio' => $condominio];
     }
 
     /**

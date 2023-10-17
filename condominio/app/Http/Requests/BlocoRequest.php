@@ -23,7 +23,7 @@ class BlocoRequest extends FormRequest
     {
         return [
             'bloco' => 'required|string',
-            'condominio_id' => 'required|string'
+            'condominio' => 'required|string'
         ];
     }
 
