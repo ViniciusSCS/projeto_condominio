@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ApartamentoService;
 use Illuminate\Http\Request;
 
 class ApartamentoController extends Controller
 {
+    protected $service;
+
+    public function __construct(ApartamentoService $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      */

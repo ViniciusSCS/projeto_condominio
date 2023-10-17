@@ -2,10 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\Geral;
+use App\Http\Requests\BlocoRequest;
+use App\Services\BlocoService;
 use Illuminate\Http\Request;
 
 class BlocoController extends Controller
 {
+    protected $service;
+
+    public function __construct(BlocoService $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -17,9 +27,11 @@ class BlocoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(BlocoRequest $request)
     {
-        dd('cadastra bloco');
+        $bloco = $this->service->create($request);
+
+        return ['status' => true, 'message' => Geral::BLOCO_CADASTRADO, 'bloco' => $bloco];
     }
 
     /**

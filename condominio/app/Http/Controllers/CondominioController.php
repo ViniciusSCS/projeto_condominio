@@ -24,9 +24,6 @@ class CondominioController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(CondominioRequest $request)
     {
         $condominio = $this->service->create($request);
@@ -34,12 +31,11 @@ class CondominioController extends Controller
         return ['status' => true, 'message' => Geral::CONDOMINIO_CADASTRADO, 'condominio' => $condominio];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function list(Request $request)
     {
-        //
+        $condominio = $this->service->list($request);
+
+        return ['status' => true, 'message' => Geral::CONDOMINIO_CADASTRADO, 'condominio' => $condominio];
     }
 
     /**

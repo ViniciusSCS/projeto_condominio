@@ -19,7 +19,13 @@ class CondominioService
         $userUuid = $request->user()->uuid;
 
         return $this->repository->create($data, $userUuid);
+    }
 
+    public function list($request)
+    {
+        $userId = $request->user()->id;
+
+        return $this->repository->list();
     }
 }
 

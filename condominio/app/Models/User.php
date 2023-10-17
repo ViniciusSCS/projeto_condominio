@@ -33,6 +33,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
+        'id',
         'password',
         'remember_token',
     ];
@@ -46,4 +47,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function tipo()
+    {
+        return $this->hasOne(TipoUsuario::class, 'id', 'tipo_usuario_id');
+    }
 }

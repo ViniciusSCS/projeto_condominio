@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('blocos', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('bloco');
-            $table->string('descricao');
+            $table->string('descricao')->nullable();
             $table->foreignUuid('condominio_id')->references('id')->on('condominios');
             $table->timestamps();
         });

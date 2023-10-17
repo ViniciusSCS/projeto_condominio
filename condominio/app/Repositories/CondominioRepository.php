@@ -16,5 +16,23 @@ class CondominioRepository
             'endereco_id' => $data['endereco'],
         ]);
     }
+
+    public function list()
+    {
+        $query = $this->query();
+
+        return $query->paginate(10);
+    }
+
+    private function query()
+    {
+        return Condominio::with(
+                'user',
+                'user.tipo',
+                'endereco',
+                'endereco.cidade',
+                'endereco.cidade.estado'
+            );
+    }
 }
 
