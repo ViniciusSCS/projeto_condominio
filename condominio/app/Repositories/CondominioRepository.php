@@ -17,14 +17,14 @@ class CondominioRepository
         ]);
     }
 
-    public function list()
+    public function list($userUuid)
     {
-        $query = $this->query();
+        $query = $this->query($userUuid);
 
         return $query->paginate(10);
     }
 
-    private function query()
+    private function query($userUuid)
     {
         return Condominio::with(
                 'user',
@@ -32,7 +32,8 @@ class CondominioRepository
                 'endereco',
                 'endereco.cidade',
                 'endereco.cidade.estado'
-            );
+            )
+            ->where('user_id', $userUuid);
     }
 }
 

@@ -23,9 +23,9 @@ class CondominioService
 
     public function list($request)
     {
-        $userId = $request->user()->id;
+        $userUuid = $request->user()->uuid;
 
-        return $this->repository->list();
+        return $this->repository->list($userUuid);
     }
 }
 
