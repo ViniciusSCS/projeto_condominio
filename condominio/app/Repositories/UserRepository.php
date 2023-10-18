@@ -9,7 +9,7 @@ class UserRepository
 {
     public function findMe($uuid)
     {
-        return User::where('uuid', $uuid)->get();
+        return User::with('tipo')->where('uuid', $uuid)->get();
     }
 
     public function create($data)

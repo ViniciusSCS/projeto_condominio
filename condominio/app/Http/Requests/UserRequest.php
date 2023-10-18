@@ -20,7 +20,7 @@ class UserRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'name' => 'required|string|max:50',
@@ -42,7 +42,7 @@ class UserRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
             'required' => 'O campo :attribute é obrigatório.',

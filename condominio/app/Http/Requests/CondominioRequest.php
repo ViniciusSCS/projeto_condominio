@@ -2,16 +2,25 @@
 
 namespace App\Http\Requests;
 
+use App\Services\RuleService;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CondominioRequest extends FormRequest
 {
+    protected $service;
+
+    public function __construct(RuleService $service) {
+        $this->service = $service;
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        $isProprietario = $this->service->isProprietario();
+
+        return $isProprietario;
     }
 
     /**
@@ -27,7 +36,7 @@ class CondominioRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
             'required' => 'O campo :attribute é obrigatório.',

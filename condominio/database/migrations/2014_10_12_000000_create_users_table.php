@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique()->nullable();
             $table->string('name');
-            $table->string('cpf');
+            $table->string('cpf')->unique();
             $table->string('telefone');
             $table->foreignUuid('tipo_usuario_id')->references('id')->on('tipo_usuarios');
             $table->string('email')->unique();

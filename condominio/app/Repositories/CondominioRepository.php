@@ -30,8 +30,8 @@ class CondominioRepository
                 'user',
                 'user.tipo',
                 'endereco',
-                'endereco.cidade',
-                'endereco.cidade.estado'
+                'endereco.cidade.estado',
+                'bloco.apartamento'
             )
             ->where('user_id', $userUuid);
     }

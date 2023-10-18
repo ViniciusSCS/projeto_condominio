@@ -27,4 +27,9 @@ class Condominio extends Model
     {
         return $this->hasOne(Endereco::class, 'id', 'endereco_id');
     }
+
+    public function bloco()
+    {
+        return $this->hasMany(Bloco::class, 'condominio_id', 'id');
+    }
 }

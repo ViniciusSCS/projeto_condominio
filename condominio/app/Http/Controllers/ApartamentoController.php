@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\Geral;
+use App\Http\Requests\ApartamentoRequest;
 use App\Services\ApartamentoService;
 use Illuminate\Http\Request;
 
@@ -25,17 +27,21 @@ class ApartamentoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(ApartamentoRequest $request)
     {
-        dd('Apartamento create');
+        $apartamento = $this->service->create($request);
+
+        return ['status' => true, 'message' => Geral::APARTAMENTO_CADASTRADO, 'apartamento' => $apartamento];
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function list()
     {
-        //
+        $apartamento = $this->service->list();
+
+        return ['status' => true, 'message' => Geral::APARTAMENTO_ENCONTRADO, 'apartamento' => $apartamento];
     }
 
     /**

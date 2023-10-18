@@ -29,4 +29,9 @@ class Geral
 
     const BLOCO_CADASTRADO = 'Bloco cadastrado com sucesso!';
     const BLOCO_ENCONTRADO = 'Bloco encontrado com sucesso!';
+
+    // Apartamento
+
+    const APARTAMENTO_CADASTRADO = 'Apartamento cadastrado com sucesso!';
+    const APARTAMENTO_ENCONTRADO = 'Apartamento encontrado com sucesso!';
 }
