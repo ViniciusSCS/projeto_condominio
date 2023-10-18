@@ -15,7 +15,7 @@ class Cidade extends Model
         'nome'
     ];
 
-    public function Estado()
+    public function estado()
     {
         return $this->belongsTo(Estado::class, 'codigo_uf');
     }

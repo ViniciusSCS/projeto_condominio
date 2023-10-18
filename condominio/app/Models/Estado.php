@@ -16,7 +16,7 @@ class Estado extends Model
         'nome'
     ];
 
-    public function Cidade()
+    public function cidade()
     {
         return $this->hasMany(Cidade::class, 'codigo_uf');
     }
