@@ -25,7 +25,10 @@ class ApartamentoRepository
 
     private function query()
     {
-        return Apartamento::with('bloco.condominio.endereco.cidade.estado', 'bloco.condominio.user');
+        return Apartamento::with(
+            'bloco.condominio.user',
+            'bloco.condominio.endereco.cidade.estado'
+        );
     }
 }
 
