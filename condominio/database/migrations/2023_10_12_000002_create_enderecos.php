@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('cep');
             $table->string('logradouro');
             $table->string('complemento');
+            $table->string('bairro');
             $table->unsignedBigInteger('cidade_id')->references('id')->on('cidades');
             $table->timestamps();
             $table->string('deleted_at')->nullable();

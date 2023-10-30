@@ -24,6 +24,15 @@ class CondominioRepository
         return $query->paginate(10);
     }
 
+    public function search($request, $userUuid, $isProprietario)
+    {
+        $query = $this->query($userUuid);
+
+        $query = $this->querySearch($request, $query, $isProprietario);
+
+        return $query->paginate(10);
+    }
+
     private function query($userUuid)
     {
         return Condominio::with(
@@ -34,6 +43,45 @@ class CondominioRepository
                 'bloco.apartamento'
             )
             ->where('user_id', $userUuid);
+    }
+
+    private function querySearch($request, $query, $isProprietario)
+    {
+        if ($request->has('condominio')) {
+            $query->where('condominio', 'LIKE', '%' . $request->condominio . '%');
+        }
+
+        if ($request->has('bloco')) {
+            $query->whereHas('bloco', function ($query) use ($request) {
+                $query->where('bloco', 'LIKE',  '%' . $request->bloco . '%');
+            });
+        }
+
+        // if ($request->has('apartamento')) {
+        //     $query->whereHas('bloco.apartamento', function ($query) use ($request) {
+        //         $query->where('numero', $request->apartamento);
+        //     });
+        // }
+
+        if ($request->has('logradouro')) {
+            $query->whereHas('endereco', function ($query) use ($request) {
+                $query->where('logradouro', 'LIKE',  '%' . $request->logradouro . '%');
+            });
+        }
+
+        if ($request->has('complemento')) {
+            $query->whereHas('endereco', function ($query) use ($request) {
+                $query->where('complemento', 'LIKE',  '%' . $request->complemento . '%');
+            });
+        }
+
+        if ($request->has('bairro')) {
+            $query->whereHas('endereco', function ($query) use ($request) {
+                $query->where('bairro', 'LIKE',  '%' . $request->bairro . '%');
+            });
+        }
+
+        return $query;
     }
 }
 

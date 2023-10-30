@@ -48,6 +48,7 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix('condominio')->group(function() {
         Route::post('/', [CondominioController::class, 'create']);
         Route::get('/', [CondominioController::class, 'list']);
+        Route::get('/buscar', [CondominioController::class, 'search']);
 
         Route::prefix('bloco')->group(function(){
             Route::post('/', [BlocoController::class, 'create']);

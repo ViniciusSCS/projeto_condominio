@@ -14,6 +14,7 @@ class EnderecoRepository
             'cep' => $data['cep'],
             'logradouro' => $data['logradouro'],
             'complemento' => $data['complemento'],
+            'bairro' => $data['bairro'],
             'cidade_id' => $data['cidade']
         ]);
 

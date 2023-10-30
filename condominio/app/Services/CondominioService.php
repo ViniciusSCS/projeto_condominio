@@ -27,5 +27,14 @@ class CondominioService
 
         return $this->repository->list($userUuid);
     }
+
+    public function search($request)
+    {
+        $userUuid = $request->user()->uuid;
+
+        $isProprietario = auth()->user()->tipo->tipo == 'Proprietário';
+
+        return $this->repository->search($request, $userUuid, $isProprietario);
+    }
 }
 

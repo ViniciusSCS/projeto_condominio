@@ -15,6 +15,7 @@ class Endereco extends Model
         'cep',
         'logradouro',
         'complemento',
+        'bairro',
         'cidade_id',
         'deleted_at'
     ];

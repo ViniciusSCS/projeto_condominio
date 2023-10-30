@@ -16,14 +16,6 @@ class CondominioController extends Controller
         $this->service = $service;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
     public function create(CondominioRequest $request)
     {
         $condominio = $this->service->create($request);
@@ -38,12 +30,11 @@ class CondominioController extends Controller
         return ['status' => true, 'message' => Geral::CONDOMINIO_ENCONTRADO, 'condominio' => $condominio];
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function search(Request $request)
     {
-        //
+        $condominio = $this->service->search($request);
+
+        return ['status' => true, 'message' => Geral::CONDOMINIO_ENCONTRADO, 'condominio' => $condominio];
     }
 
     /**

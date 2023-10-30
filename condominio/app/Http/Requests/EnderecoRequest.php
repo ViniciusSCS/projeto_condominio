@@ -33,7 +33,8 @@ class EnderecoRequest extends FormRequest
         return [
             'cep' => 'required|string|min:9|max:9',
             'logradouro' => 'required|string',
-            'complemento' => 'required|string'
+            'complemento' => 'required|string',
+            'bairro' => 'required|string'
         ];
     }
 
