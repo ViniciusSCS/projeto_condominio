@@ -42,7 +42,8 @@ class CondominioRepository
                 'endereco.cidade.estado',
                 'bloco.apartamento'
             )
-            ->where('user_id', $userUuid);
+            ->where('user_id', $userUuid)
+            ->whereNull('deleted_at');
     }
 
     private function querySearch($request, $query, $isProprietario)
