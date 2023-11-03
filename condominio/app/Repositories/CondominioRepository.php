@@ -38,7 +38,6 @@ class CondominioRepository
         return Condominio::with(
                 'user',
                 'user.tipo',
-                'endereco',
                 'endereco.cidade.estado',
                 'bloco.apartamento'
             )
@@ -79,6 +78,18 @@ class CondominioRepository
         if ($request->has('bairro')) {
             $query->whereHas('endereco', function ($query) use ($request) {
                 $query->where('bairro', 'LIKE',  '%' . $request->bairro . '%');
+            });
+        }
+
+        if ($request->has('cidade')) {
+            $query->whereHas('endereco.cidade', function ($query) use ($request) {
+                $query->where('nome', 'LIKE',  '%' . $request->cidade . '%');
+            });
+        }
+
+        if ($request->has('estado')) {
+            $query->whereHas('endereco.cidade.estado', function ($query) use ($request) {
+                $query->where('nome', 'LIKE',  '%' . $request->estado . '%');
             });
         }
 
