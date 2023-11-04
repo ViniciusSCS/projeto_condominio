@@ -39,7 +39,8 @@ class CondominioRepository
                 'user',
                 'user.tipo',
                 'endereco.cidade.estado',
-                'bloco.apartamento'
+                'bloco.apartamento.morador',
+                'bloco.apartamento.proprietario'
             )
             ->where('user_id', $userUuid)
             ->whereNull('deleted_at');
@@ -54,6 +55,18 @@ class CondominioRepository
         if ($request->has('bloco')) {
             $query->whereHas('bloco', function ($query) use ($request) {
                 $query->where('bloco', 'LIKE',  '%' . $request->bloco . '%');
+            });
+        }
+
+        if ($request->has('morador')) {
+            $query->whereHas('bloco.apartamento.morador', function ($query) use ($request) {
+                $query->where('name', 'LIKE',  '%' . $request->morador . '%');
+            });
+        }
+
+        if ($request->has('proprietario')) {
+            $query->whereHas('bloco.apartamento.proprietario', function ($query) use ($request) {
+                $query->where('name', 'LIKE',  '%' . $request->proprietario . '%');
             });
         }
 

@@ -12,7 +12,9 @@ class ApartamentoRepository
         return Apartamento::create([
             'id' => (string) Uuid::uuid4(),
             'numero' => $data['numero'],
-            'bloco_id' => $data['bloco']
+            'bloco_id' => $data['bloco'],
+            'user_morador' => $data['morador'],
+            'user_proprietario' => $data['proprietario']
         ]);
     }
 
@@ -26,6 +28,8 @@ class ApartamentoRepository
     private function query()
     {
         return Apartamento::with(
+            'morador',
+            'proprietario',
             'bloco.condominio.user',
             'bloco.condominio.endereco.cidade.estado'
         );

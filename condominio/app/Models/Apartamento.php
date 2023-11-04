@@ -13,11 +13,23 @@ class Apartamento extends Model
     protected $fillable = [
         'id',
         'numero',
-        'bloco_id'
+        'bloco_id',
+        'user_morador',
+        'user_proprietario'
     ];
 
     public function bloco()
     {
         return $this->hasOne(Bloco::class, 'id', 'bloco_id');
+    }
+
+    public function morador()
+    {
+        return $this->hasOne(User::class, 'uuid', 'user_morador');
+    }
+
+    public function proprietario()
+    {
+        return $this->hasOne(User::class, 'uuid', 'user_proprietario');
     }
 }
