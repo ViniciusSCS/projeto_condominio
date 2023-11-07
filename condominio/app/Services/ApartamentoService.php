@@ -17,7 +17,13 @@ class ApartamentoService
     {
         $data = $request->all();
 
-        return $this->repository->create($data);
+        $apartamento = $this->repository->validaApartamentoPorBloco($data['bloco'], $data['numero']);
+
+        if(!$apartamento){
+            return $this->repository->create($data);
+        }
+
+        return false;
     }
 
     public function list()
