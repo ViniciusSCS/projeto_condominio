@@ -57,6 +57,7 @@ Route::middleware('auth:api')->group(function () {
             Route::prefix('apartamento')->group(function(){
                 Route::post('/', [ApartamentoController::class, 'create']);
                 Route::get('/', [ApartamentoController::class, 'list']);
+                Route::put('/atualizar/{uuid}', [ApartamentoController::class, 'update']);
             });
         });
     });

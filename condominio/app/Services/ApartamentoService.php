@@ -24,5 +24,16 @@ class ApartamentoService
     {
         return $this->repository->list();
     }
+
+    public function update($request, $uuid)
+    {
+        $data = $request->all();
+
+        $apartamento = $this->repository->find($uuid);
+
+        $apartamento->update($data);
+
+        return $apartamento;
+    }
 }
 

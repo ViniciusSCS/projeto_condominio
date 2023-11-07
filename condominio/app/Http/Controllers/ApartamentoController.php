@@ -31,7 +31,11 @@ class ApartamentoController extends Controller
     {
         $apartamento = $this->service->create($request);
 
-        return ['status' => true, 'message' => Geral::APARTAMENTO_CADASTRADO, 'apartamento' => $apartamento];
+        if($apartamento == true){
+            return ['status' => true, 'message' => Geral::APARTAMENTO_CADASTRADO, 'apartamento' => $apartamento];
+        } else {
+            return ['status' => false, 'message' => Geral::APARTAMENTO_EXISTE, 'apartamento' => $apartamento];
+        }
     }
 
     /**
@@ -60,12 +64,11 @@ class ApartamentoController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $uuid)
     {
-        //
+        $apartamento = $this->service->update($request, $uuid);
+
+        return ['status' => true, 'message' => Geral::APARTAMENTO_ATUALIZADO, "apartamento" => $apartamento];
     }
 
     /**

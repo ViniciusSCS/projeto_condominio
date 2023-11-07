@@ -33,5 +33,7 @@ class Geral
     // Apartamento
 
     const APARTAMENTO_CADASTRADO = 'Apartamento cadastrado com sucesso!';
+    const APARTAMENTO_EXISTE = 'Apartamento já existe no bloco cadastrado!';
     const APARTAMENTO_ENCONTRADO = 'Apartamento encontrado com sucesso!';
+    const APARTAMENTO_ATUALIZADO = 'Apartamento atualizado com sucesso!';
 }
