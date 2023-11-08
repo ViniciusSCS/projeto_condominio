@@ -28,12 +28,13 @@ class Geral
     // Bloco
 
     const BLOCO_CADASTRADO = 'Bloco cadastrado com sucesso!';
+    const BLOCO_EXISTE = 'Este bloco já existe no condomínio especificado!';
     const BLOCO_ENCONTRADO = 'Bloco encontrado com sucesso!';
 
     // Apartamento
 
     const APARTAMENTO_CADASTRADO = 'Apartamento cadastrado com sucesso!';
-    const APARTAMENTO_EXISTE = 'Apartamento já existe no bloco cadastrado!';
+    const APARTAMENTO_EXISTE = 'Este apartamento já existe no bloco especificado!';
     const APARTAMENTO_ENCONTRADO = 'Apartamento encontrado com sucesso!';
     const APARTAMENTO_ATUALIZADO = 'Apartamento atualizado com sucesso!';
 }

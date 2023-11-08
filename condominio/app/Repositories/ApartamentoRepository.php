@@ -13,13 +13,6 @@ class ApartamentoRepository
         return Apartamento::find($uuid);
     }
 
-    public function validaApartamentoPorBloco($bloco, $numero)
-    {
-        return Apartamento::where('bloco_id', $bloco)
-            ->where('numero', $numero)
-            ->exists();
-    }
-
     public function create($data)
     {
         return Apartamento::create([

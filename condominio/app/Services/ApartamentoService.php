@@ -3,21 +3,24 @@
 namespace App\Services;
 
 use App\Repositories\ApartamentoRepository;
+use App\Rules\ApartamentoRule;
 
 class ApartamentoService
 {
     protected $repository;
+    protected $apartamentoRule;
 
-    public function __construct(ApartamentoRepository $repository)
+    public function __construct(ApartamentoRepository $repository, ApartamentoRule $apartamentoRule)
     {
         $this->repository = $repository;
+        $this->apartamentoRule = $apartamentoRule;
     }
 
     public function create($request)
     {
         $data = $request->all();
 
-        $apartamento = $this->repository->validaApartamentoPorBloco($data['bloco'], $data['numero']);
+        $apartamento = $this->apartamentoRule->validaApartamentoPorBloco($data['bloco'], $data['numero']);
 
         if(!$apartamento){
             return $this->repository->create($data);
