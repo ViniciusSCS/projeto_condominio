@@ -15,6 +15,7 @@ class Geral
     const USUARIO_ME = 'Usuário Logado!';
     const USUARIO_ENCONTRADO = 'Usuário encontrado!';
     const USUARIO_DELETADO = 'Usuário deletado com sucesso!';
+    const USUARIO_SEM_PERMISSAO = 'Você não tem permissão para acessar esta funcionalidade.';
 
     // Endereço
 

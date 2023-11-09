@@ -2,15 +2,15 @@
 
 namespace App\Http\Requests;
 
-use App\Services\RuleService;
+use App\Rules\UsuarioRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class EnderecoRequest extends FormRequest
 {
-    protected $service;
+    protected $rule;
 
-    public function __construct(RuleService $service) {
-        $this->service = $service;
+    public function __construct(UsuarioRule $rule) {
+        $this->rule = $rule;
     }
 
     /**
@@ -18,7 +18,7 @@ class EnderecoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        $isProprietario = $this->service->isProprietario();
+        $isProprietario = $this->rule->isProprietario();
 
         return $isProprietario;
     }

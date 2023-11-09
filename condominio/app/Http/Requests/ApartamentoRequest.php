@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Services\RuleService;
+use App\Rules\UsuarioRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ApartamentoRequest extends FormRequest
 {
-    protected $service;
+    protected $rule;
 
-    public function __construct(RuleService $service) {
-        $this->service = $service;
+    public function __construct(UsuarioRule $rule) {
+        $this->rule = $rule;
     }
 
     /**
@@ -19,7 +19,7 @@ class ApartamentoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        $isProprietario = $this->service->isProprietario();
+        $isProprietario = $this->rule->isProprietario();
 
         return $isProprietario;
     }

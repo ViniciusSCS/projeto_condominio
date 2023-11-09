@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Rules;
 
-class RuleService
+use App\Constants\Geral;
+
+class UsuarioRule
 {
     public function isProprietario()
     {
@@ -17,8 +19,7 @@ class RuleService
 
     private function failedAuthorization()
     {
-        $message = 'Você não tem permissão para acessar esta funcionalidade.';
+        $message = Geral::USUARIO_SEM_PERMISSAO;
         abort(403, $message);
     }
 }
-
