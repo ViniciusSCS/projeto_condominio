@@ -31,7 +31,7 @@ class BlocoController extends Controller
     {
         $bloco = $this->service->create($request);
 
-        if($bloco == true){
+        if($bloco){
             return ['status' => true, 'message' => Geral::BLOCO_CADASTRADO, 'bloco' => $bloco];
         } else {
             return ['status' => false, 'message' => Geral::BLOCO_EXISTE, 'bloco' => $bloco];
